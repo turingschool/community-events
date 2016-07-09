@@ -1,0 +1,19 @@
+{
+  "name": "community-events",
+  "version": "1.0.0",
+  "description": "A simple API for accessing community events at Turing School.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/turingschool/community-events.git"
+  },
+  "author": "Steve Kinney",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/turingschool/community-events/issues"
+  },
+  "homepage": "https://github.com/turingschool/community-events#readme"
+}
