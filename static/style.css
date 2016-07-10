@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 1em;
+}
+
+body, input {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+p {
+  line-height: 1.4em;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+#community-events {
+  background-color: rgb(255, 247, 229);
+  border: 1px solid rgb(239, 194, 108);
+  padding: 1em;
+}

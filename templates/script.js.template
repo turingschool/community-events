@@ -12,7 +12,7 @@ eventsRequest.addEventListener('load', function () {
       return event.asHTML;
     })].join('');
    } else {
-      targetDiv.innerHTML = [heading, '<p>There are no upcoming community events.</p>'].join('');
+    targetDiv.innerHTML = [heading, '<p>There are no upcoming community events.</p>'].join('');
    }
 });
 

@@ -7,11 +7,41 @@
   </head>
   <body>
 
-    <h1>Turing School Community Events</h1>
+    <div class="container">
+      <h1>Turing School Community Events</h1>
 
-    <div id="community-events"></div>
+      <p><strong>Nota bene</strong>: This is very much beta software.</p>
 
-    <pre><code>{
+      <h2>What is this?</h2>
+
+      <p>
+        This is a little API and script for injecting events from the Turing Community Calendar into the daily outline or for working with Slackbots or really whatever your imagination can come up with. Here is a quicky example of what it looks like in action:
+      </p>
+
+      <p>
+        Basically, you can just add all of the details for a certain event into the description and the API will even convert the Markdown to HTML. As long as everything is in the calendar invite, you don't have to worry about the rest.
+      </p>
+
+      <section id="community-events"></section>
+
+      <p>All you need is an element on the page with the <code>id</code> of <code>community-events</code> and then add one of the follow two scripts to the page.</p>
+
+      <ul>
+        <li><code><span class="host"></span>/script.js</code></li>
+        <li><code><span class="host"></span>/script.js?min=true</code> for a minified version of the script.</li>
+      </ul>
+
+      <p>
+        You can also pass the a <code>target</code> query parameter with some other <code>id</code> as the value if you'd like to use something other than <code>community-events</code>. The script will look for an element of whatever value you provide instead.
+      </p>
+
+      <h2>What does the API look like?</h2>
+
+      <p>You can make a call to <code><span class="host"></span>events</code> and get back today and tomorrows events by default.</p>
+
+      <p>The response will look something like this:</p>
+
+      <pre><code>{
   "events": [
     {
       "title": "The Internet's Own Boy Screening",
@@ -23,8 +53,29 @@
     }
   ]
 }
-    </code></pre>
+      </code></pre>
+
+      <p>The API also takes a number of query parameters to customize the output:</p>
+
+      <ul>
+        <li>
+          <code>start</code> will allow you to provide a custom start date for your query. If you don't provide a start date, the API will default to today.
+        </li>
+        <li>
+          <code>end</code> will allow you to provide a custom end date for your query. If you don't provide an end date, the API will default to the day after the start date.
+        </li>
+        <li>
+          <code>html</code> will also give you the formated HTML that I use the script above.
+        </li>
+      </ul>
+
+    </div>
 
     <script src="script.js"></script>
+    <script>
+      for (let element of document.querySelectorAll('.host')) {
+        element.innerText = window.location.href;
+      }
+    </script>
   </body>
 </html>
