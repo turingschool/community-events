@@ -33,7 +33,7 @@ app.get('/script.js', (request, response) => {
   clientScript.then(scriptTemplate => {
     const script = scriptTemplate({
       target,
-      host: `${protocol}://${request.get('host')}`,
+      host: `https://${request.get('host')}`,
     });
 
     if (min) {
