@@ -6,8 +6,6 @@
   "scripts": {
     "start": "node index.js",
     "watch": "nodemon index.js",
-    "minify": "uglify -s static/script.js -o static/script.min.js",
-    "postinstall": "npm run minifiy",
     "test": "mocha"
   },
   "repository": {
