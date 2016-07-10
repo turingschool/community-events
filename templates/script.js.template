@@ -1,0 +1,20 @@
+var eventsRequest = new XMLHttpRequest();
+var targetDiv = document.getElementById('${ target }');
+
+eventsRequest.addEventListener('load', function () {
+  var events = JSON.parse(this.responseText).events;
+  var heading = '<h2>Community Events</h2>';
+
+  if (!targetDiv) { throw new Error('You must have an element with the ID of "${ target }".'); }
+
+  if (events.length) {
+    targetDiv.innerHTML = [heading, events.map(function (event) {
+      return event.asHTML;
+    })].join('');
+   } else {
+      targetDiv.innerHTML = [heading, '<p>There are no upcoming community events.</p>'].join('');
+   }
+});
+
+eventsRequest.open('GET', '${ host }/events?html=true');
+eventsRequest.send();
