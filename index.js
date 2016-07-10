@@ -1,6 +1,7 @@
 const { template } = require('lodash');
 const { minify } = require('uglify-js');
 const express = require('express');
+const cors = require('cors');
 const getFile = require('./lib/get-file');
 const getEvents = require('./lib/get-events');
 
@@ -11,6 +12,7 @@ const clientScript = getFile('./templates/script.js.template')
                        .then(t => template(t))
                        .catch(e => console.log(e));
 
+app.use(cors());
 app.use(express.static('static'));
 
 app.get('/events', (request, response) => {
