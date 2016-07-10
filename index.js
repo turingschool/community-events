@@ -30,20 +30,17 @@ app.get('/events', (request, response) => {
 });
 
 app.get('/script.js', (request, response) => {
-  const { protocol } = request;
   const { min, target = 'community-events' } = request.query;
+
+  request.contentType('text/javascript');
+
   clientScript.then(scriptTemplate => {
     const script = scriptTemplate({
       target,
       host: `https://${request.get('host')}`,
     });
 
-    if (min) {
-      response.send(minify(script, {fromString: true}).code);
-    }
-    else {
-      response.send(script);
-    }
+    response.send(min ? minify(script, {fromString: true}).code : script);
   });
 });
 
