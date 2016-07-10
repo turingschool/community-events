@@ -32,7 +32,7 @@ app.get('/events', (request, response) => {
 app.get('/script.js', (request, response) => {
   const { min, target = 'community-events' } = request.query;
 
-  request.contentType('text/javascript');
+  response.contentType('text/javascript');
 
   clientScript.then(scriptTemplate => {
     const script = scriptTemplate({
